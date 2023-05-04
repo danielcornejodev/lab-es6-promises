@@ -85,6 +85,7 @@ async function getBrusselsSprouts() {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`;
     }
     document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute('hidden');
   } catch (err) {
     console.log(err);
   }
@@ -101,6 +102,7 @@ Promise.all(broccoli.map((step, index) => {
       document.querySelector("#broccoli").innerHTML += `<li>${instruction}</li>`;
     });
     document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+    document.querySelector("#broccoliImg").removeAttribute('hidden');
   })
   .catch((err) => {
     console.log(err);
