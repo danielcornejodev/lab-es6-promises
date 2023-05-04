@@ -100,6 +100,7 @@ Promise.all(broccoli.map((step, index) => {
     instructions.forEach((instruction) => {
       document.querySelector("#broccoli").innerHTML += `<li>${instruction}</li>`;
     });
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
   })
   .catch((err) => {
     console.log(err);
