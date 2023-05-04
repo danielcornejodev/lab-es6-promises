@@ -57,26 +57,26 @@ steak.forEach((step, index) => {
 });
 
 // Iteration 3 using async/await
-async function cookSteak() {
+async function getBrusselsSprouts() {
   try {
-    for (let i = 0; i < steak.length; i++) {
-      const instruction = await obtainInstruction('steak', i);
-      document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
+    for (let i = 0; i < brusselsSprouts.length; i++) {
+      const instruction = await obtainInstruction('brusselsSprouts', i);
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`;
     }
   } catch (err) {
     console.log(err);
   }
 }
 
-cookSteak();
+getBrusselsSprouts();
 
 // Bonus 2 - Promise all
-Promise.all(steak.map((step, index) => {
-  return obtainInstruction('steak', index);
+Promise.all(broccoli.map((step, index) => {
+  return obtainInstruction('broccoli', index);
 }))
   .then((instructions) => {
     instructions.forEach((instruction) => {
-      document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
+      document.querySelector("#broccoli").innerHTML += `<li>${instruction}</li>`;
     });
   })
   .catch((err) => {
