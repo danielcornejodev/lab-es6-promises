@@ -45,7 +45,7 @@ getInstruction("mashedPotatoes", 0, (step1) => {
 }, (error) => console.log(error));
 
 // Iteration 2 - using promises
-steak.forEach((step, index) => {
+steak.forEach((food, index) => {
   obtainInstruction('steak', index)
     .then((instruction) => {
       document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
