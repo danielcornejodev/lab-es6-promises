@@ -71,4 +71,14 @@ async function cookSteak() {
 cookSteak();
 
 // Bonus 2 - Promise all
-// ...
+Promise.all(steak.map((step, index) => {
+  return obtainInstruction('steak', index);
+}))
+  .then((instructions) => {
+    instructions.forEach((instruction) => {
+      document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
