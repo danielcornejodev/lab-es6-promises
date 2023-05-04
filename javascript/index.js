@@ -46,37 +46,29 @@ getInstruction("mashedPotatoes", 0, (step1) => {
   }, (error) => console.log(error));
 }, (error) => console.log(error));
 // Iteration 2 - using promises
-obtainInstruction('steak', 0)
-  .then((instruction) => {
-    document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
-    obtainInstruction('steak', 1)
-      .then((instruction) => {
-        document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
-        obtainInstruction('steak', 2)
-          .then((instruction) => {
-            document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
-            obtainInstruction('steak', 3)
-              .then((instruction) => {
-              document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
-            })
-            .catch((err)=>{
-              console.log(err);
-            })
-          })
-          .catch((err)=>{
-            console.log(err);
-          })
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
-  })
-  .catch((err)=>{
-    console.log(err);
-  })
+steak.forEach((step, index) => {
+  obtainInstruction('steak', index)
+    .then((instruction) => {
+      document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 // Iteration 3 using async/await
-// ...
+async function cookSteak() {
+  try {
+    for (let i = 0; i < steak.length; i++) {
+      const instruction = await obtainInstruction('steak', i);
+      document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+cookSteak();
 
 // Bonus 2 - Promise all
 // ...
